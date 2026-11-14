@@ -1,0 +1,40 @@
+echo  "=========================================="
+echo  "       SYSTEM HEALTH MONITOR              "
+echo  "=========================================="
+echo ""
+echo  "HOSTNAME:$(hostname)"
+echo  "DATE    :$(date)"
+echo  "UPTIME  :$(uptime -p)"
+echo ""
+echo  "=========================================="
+echo  "         CPU INFORMATIONN                  "
+echo  "=========================================="
+echo ""
+top -bn1 | grep "Cpu(s)"
+echo ""
+echo "============================================"
+echo "          MEMORY  INFORMATION               "
+echo "============================================"
+free -h 
+echo ""
+echo "============================================"
+echo "       DISK SPACE MONITOR                   "
+echo "============================================"
+echo ""
+df -h /
+echo ""
+echo  "==========================================="
+echo  "  TOP 5 MEMORY CONSUMING PROCESS           "
+echo  "==========================================="
+ps -aux --sort=-%mem | head -n 6
+echo ""
+echo  "==========================================="
+echo  "    INTERNET CONNECTIVITY                 "
+echo  "==========================================="
+if ping -c 4 -W 2 google.com > /dev/null
+then
+echo " INTERNET : CONNECTED"
+else
+echo "INTERNET : NOT_ CONNECTED"
+fi
+echo ""
