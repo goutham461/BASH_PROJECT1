@@ -38,3 +38,4 @@ else
 echo "INTERNET : NOT_ CONNECTED"
 fi
 echo ""
+echo "SYSTEM HEALTH CHECK COMPLETED"
